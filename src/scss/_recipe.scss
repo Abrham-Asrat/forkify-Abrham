@@ -1,3 +1,5 @@
+@use 'base' as *; 
+@use 'sass:color';
 .recipe {
   background-color: $color-grey-light-1;
 
@@ -100,7 +102,7 @@
   }
 
   &__user-generated {
-    background-color: darken($color-grey-light-2, 2%);
+    background-color: color.adjust($color-grey-light-2, $lightness: -2%);
     
 
     display: flex;
