@@ -13,6 +13,7 @@
   "dependencies": {
     "core-js": "^3.39.0",
     "fractional": "^1.0.0",
+    "htmlnano": "^2.1.1",
     "regenerator-runtime": "^0.14.1"
   },
   "devDependencies": {
