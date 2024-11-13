@@ -1,6 +1,6 @@
 // class RecipeView {
 import View from "./View.js";
-import Fraction from "fraction.js";
+import { Fraction } from "fractional";
 import icons from "url:../../img/icons.svg";
 
 class RecipeView extends View {
