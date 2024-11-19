@@ -1,4 +1,5 @@
-import { TIME_OUT } from "./config.js";
+import { TIME_OUT } from './config.js';
+
 const timeout = function (s) {
   return new Promise(function (_, reject) {
     setTimeout(function () {
@@ -7,13 +8,13 @@ const timeout = function (s) {
   });
 };
 
-export const AJX = async function (url, uploadData = undefined) {
+export const AJAX = async function (url, uploadData = undefined) {
   try {
     const fetchPro = uploadData
       ? fetch(url, {
-          method: "POST",
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify(uploadData),
         })
@@ -21,11 +22,11 @@ export const AJX = async function (url, uploadData = undefined) {
 
     const res = await Promise.race([fetchPro, timeout(TIME_OUT)]);
     const data = await res.json();
-    if (!res.ok) throw new Error(`${data.message}, ${res.status}`);
 
+    if (!res.ok) throw new Error(`${data.message} (${res.status})`);
     return data;
   } catch (err) {
-    console.log(err.message);
+    console.log(err);
     throw err;
   }
 };
